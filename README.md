@@ -35,3 +35,43 @@ To run this project locally, you will need Python and the following libraries:
 You can install the dependencies with:
 ```bash
 pip install numpy pandas scikit-learn matplotlib
+
+## Methodology
+
+### Data Pre-processing
+Data pre-processing steps include:
+- **Cleaning and standardization**: Unifying categorical values and consolidating quarters.
+- **Handling missing values**: Applying imputation to the `Work-in-Progress` variable.
+- **Encoding**: One-Hot Encoding was applied to categorical variables.
+- **Feature Engineering**: Transitioned from regression to binary classification by setting a productivity threshold.
+
+### Modeling and Hyperparameter Tuning
+The following models were evaluated:
+1. K-Nearest Neighbors (KNN)
+2. Logistic Regression
+3. Decision Tree
+4. Random Forest
+
+To ensure robust performance, a nested cross-validation framework was employed:
+- **Outer Cross-Validation**: 10-fold stratified cross-validation for unbiased performance estimation.
+- **Inner Cross-Validation**: 5-fold cross-validation for hyperparameter optimization.
+
+Each model underwent hyperparameter tuning, and the Random Forest model demonstrated the best performance with an accuracy of 85%.
+
+## Results
+| Model            | Accuracy | Precision | Recall | F1-score |
+|------------------|----------|-----------|--------|----------|
+| KNN              | 0.77     | 0.77      | 0.77   | 0.76     |
+| Logistic Regression | 0.79  | 0.79      | 0.79   | 0.79     |
+| Decision Tree    | 0.80     | 0.79      | 0.80   | 0.80     |
+| **Random Forest** | **0.85** | **0.85**  | **0.85** | **0.85** |
+
+The Random Forest model achieved the highest AUC of 0.92, highlighting its effectiveness in predicting employee productivity levels.
+
+## Conclusions
+This project demonstrates the utility of machine learning in classifying employee productivity in the garment sector. The optimized Random Forest model showed superior performance and reliability, making it suitable for real-world deployment in similar industrial settings.
+
+## References
+- Dataset source: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php)
+- Manco, F. *Predicting Employee Productivity in the Garment Factory Using Machine Learning Techniques* (University of Bari Aldo Moro)
+
