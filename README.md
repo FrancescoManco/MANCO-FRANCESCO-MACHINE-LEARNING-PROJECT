@@ -32,10 +32,7 @@ To run this project locally, you will need Python and the following libraries:
 - `scikit-learn`
 - `matplotlib`
 
-You can install the dependencies with:
-```bash
-pip install numpy pandas scikit-learn matplotlib
-'''
+
 ## Methodology
 
 ### Data Pre-processing
